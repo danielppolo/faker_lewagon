@@ -1,5 +1,5 @@
 hy:
-  faker:
+  lewagon:
 
     address:
       country_code: ['1-374', '374']

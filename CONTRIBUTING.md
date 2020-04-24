@@ -15,7 +15,7 @@ We love pull requests. Here's a quick guide:
 
 6. We care about code coverage and use `SimpleCov` to analyze the code and generate test coverage reports. It's possible to check the test coverage by running  `open coverage/index.html`. Please make sure to not decrease our `current % covered` and add appropriate test cases when necessary.
 
-7. When adding a new class, add a new yaml file to `lib/locales/en` rather than adding translations to `lib/locales/en.yml`.  For example, if you add Faker::MyThing, put your translations in `lib/locales/en/my_thing.yml`.  See [the locale README](./lib/locales/en/README.md) for more info.
+7. When adding a new class, add a new yaml file to `lib/locales/en` rather than adding translations to `lib/locales/en.yml`.  For example, if you add LeWagon::MyThing, put your translations in `lib/locales/en/my_thing.yml`.  See [the locale README](./lib/locales/en/README.md) for more info.
 
 8. When removing a method, don't forget to deprecate it. You can `extend Gem::Deprecate` and use the `deprecate` method to accomplish this task.
 
@@ -49,7 +49,7 @@ Include [YARD] style docs for all methods that includes:
 - Descriptions for all params (`@param`)
 - The return type (`@return`)
 - At least one example of the output (`@example`)
-- The version that the method was added (`@faker.version`)
+- The version that the method was added (`@lewagon.version`)
   - Set as `next` for new methods
 
 ```ruby
@@ -61,13 +61,13 @@ Include [YARD] style docs for all methods that includes:
 # @return [String]
 # 
 # @example
-#   Faker::Alphanumeric.alpha
+#   LeWagon::Alphanumeric.alpha
 #     #=> "kgdpxlgwjirlqhwhrebvuomdcjjpeqlq" 
 # @example 
-#   Faker::Alphanumeric.alpha(number: 10)
+#   LeWagon::Alphanumeric.alpha(number: 10)
 #     #=> "zlvubkrwga"
 #
-# @faker.version next
+# @lewagon.version next
 def alpha(number: 32)
     # ...
 end
@@ -104,7 +104,7 @@ a_things:
 
 ### Tips
 
-* Use the `rake console` task to start a session with Faker loaded.
+* Use the `rake console` task to start a session with LeWagon loaded.
 * Use `bundle exec yard server -r` to launch the YARD Doc server 
 
 [YARD]: (https://www.rubydoc.info/gems/yard/file/README.md)

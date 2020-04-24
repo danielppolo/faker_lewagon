@@ -1,5 +1,5 @@
 --no-private
---tag faker.version:"Available since"
---exclude lib/faker/deprecate/
+--tag lewagon.version:"Available since"
+--exclude lib/lewagon/deprecate/
 --output-dir yard_docs
 lib/**/*.rb

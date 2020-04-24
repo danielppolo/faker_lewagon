@@ -1,5 +1,5 @@
 ee:
-  faker:
+  lewagon:
     invoice:
       reference:
         # '#' means the place where check digit is placed

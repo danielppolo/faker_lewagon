@@ -13,7 +13,7 @@
 # https://www.nzpost.co.nz/tools/address-postcode-finder/help/examples
 
 en-NZ:
-  faker:
+  lewagon:
     name:
       first_name: [
         Aaria, Aaron, Abigail, Adam, Adrian, Adrienne, Aimee, Alan, Alana, Alex, Alexander, Alexandra, Alice, Alicia, Alison, Allan, Alyssa,

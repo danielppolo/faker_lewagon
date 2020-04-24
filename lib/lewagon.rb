@@ -14,7 +14,7 @@ Dir.glob(File.join(File.dirname(__FILE__), 'helpers', '*.rb')).sort.each { |file
 I18n.load_path += Dir[File.join(mydir, 'locales', '**/*.yml')]
 I18n.reload! if I18n.backend.initialized?
 
-module Faker
+module LeWagon
   class Config
     @locale = nil
     @random = nil
@@ -98,7 +98,7 @@ module Faker
       # Helper for the common approach of grabbing a translation
       # with an array of values and selecting one of them.
       def fetch(key)
-        fetched = sample(translate("faker.#{key}"))
+        fetched = sample(translate("lewagon.#{key}"))
         if fetched&.match(%r{^\/}) && fetched&.match(%r{\/$}) # A regex
           regexify(fetched)
         else
@@ -109,7 +109,7 @@ module Faker
       # Helper for the common approach of grabbing a translation
       # with an array of values and returning all of them.
       def fetch_all(key)
-        fetched = translate("faker.#{key}")
+        fetched = translate("lewagon.#{key}")
         fetched = fetched.last if fetched.size <= 1
         if !fetched.respond_to?(:sample) && fetched.match(%r{^\/}) && fetched.match(%r{\/$}) # A regex
           regexify(fetched)
@@ -126,14 +126,14 @@ module Faker
         parts = fetched.scan(/(\(?)#\{([A-Za-z]+\.)?([^\}]+)\}([^#]+)?/).map do |prefix, kls, meth, etc|
           # If the token had a class Prefix (e.g., Name.first_name)
           # grab the constant, otherwise use self
-          cls = kls ? Faker.const_get(kls.chop) : self
+          cls = kls ? LeWagon.const_get(kls.chop) : self
 
           # If an optional leading parentheses is not present, prefix.should == "", otherwise prefix.should == "("
           # In either case the information will be retained for reconstruction of the string.
           text = prefix
 
           # If the class has the method, call it, otherwise fetch the transation
-          # (e.g., faker.phone_number.area_code)
+          # (e.g., lewagon.phone_number.area_code)
           text += if cls.respond_to?(meth)
                     cls.send(meth)
                   else
@@ -152,7 +152,7 @@ module Faker
       # Call I18n.translate with our configured locale if no
       # locale is specified
       def translate(*args, **opts)
-        opts[:locale] ||= Faker::Config.locale
+        opts[:locale] ||= LeWagon::Config.locale
         opts[:raise] = true
         I18n.translate(*args, **opts)
       rescue I18n::MissingTranslationData
@@ -168,14 +168,14 @@ module Faker
 
       # Executes block with given locale set.
       def with_locale(tmp_locale = nil)
-        current_locale = Faker::Config.own_locale
-        Faker::Config.locale = tmp_locale
+        current_locale = LeWagon::Config.own_locale
+        LeWagon::Config.locale = tmp_locale
 
         disable_enforce_available_locales do
           I18n.with_locale(tmp_locale) { yield }
         end
       ensure
-        Faker::Config.locale = current_locale
+        LeWagon::Config.locale = current_locale
       end
 
       def flexible(key)
@@ -186,11 +186,11 @@ module Faker
       # E.g., in your locale file, create a
       #   name:
       #     girls_name: ["Alice", "Cheryl", "Tatiana"]
-      # Then you can call Faker::Name.girls_name and it will act like #first_name
+      # Then you can call LeWagon::Name.girls_name and it will act like #first_name
       def method_missing(mth, *args, &block)
         super unless @flexible_key
 
-        if (translation = translate("faker.#{@flexible_key}.#{mth}"))
+        if (translation = translate("lewagon.#{@flexible_key}.#{mth}"))
           sample(translation)
         else
           super
@@ -226,18 +226,18 @@ module Faker
       end
 
       def sample(list)
-        list.respond_to?(:sample) ? list.sample(random: Faker::Config.random) : list
+        list.respond_to?(:sample) ? list.sample(random: LeWagon::Config.random) : list
       end
 
       def shuffle(list)
-        list.shuffle(random: Faker::Config.random)
+        list.shuffle(random: LeWagon::Config.random)
       end
 
       def rand(max = nil)
         if max.nil?
-          Faker::Config.random.rand
+          LeWagon::Config.random.rand
         elsif max.is_a?(Range) || max.to_i.positive?
-          Faker::Config.random.rand(max)
+          LeWagon::Config.random.rand(max)
         else
           0
         end
@@ -277,11 +277,11 @@ module Faker
         warn(<<~MSG)
 
           To automatically update from positional arguments to keyword arguments,
-          install rubocop-faker and run:
+          install rubocop-lewagon and run:
 
           rubocop \\
-            --require rubocop-faker \\
-            --only Faker/DeprecatedArguments \\
+            --require rubocop-lewagon \\
+            --only LeWagon/DeprecatedArguments \\
             --auto-correct
 
         MSG
@@ -306,5 +306,5 @@ module Faker
   end
 end
 
-# require faker objects
-Dir.glob(File.join(File.dirname(__FILE__), 'faker', '/**/*.rb')).sort.each { |file| require file }
+# require lewagon objects
+Dir.glob(File.join(File.dirname(__FILE__), 'lewagon', '/**/*.rb')).sort.each { |file| require file }

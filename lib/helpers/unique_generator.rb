@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faker
+module LeWagon
   class UniqueGenerator
     @marked_unique = Set.new # Holds names of generators with unique values
 
@@ -36,7 +36,7 @@ module Faker
     # rubocop:enable Style/MethodMissingSuper
 
     def respond_to_missing?(method_name, include_private = false)
-      method_name.to_s.start_with?('faker_') || super
+      method_name.to_s.start_with?('lewagon_') || super
     end
 
     RetryLimitExceeded = Class.new(StandardError)

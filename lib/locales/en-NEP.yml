@@ -2,7 +2,7 @@
 # This file is formatted for Nepal.
 
 en-NEP:
-  faker:
+  lewagon:
     name:
       male_first_name: ["Kamal", "Gopal", "Hari", "Himal", "Baburam", "Prachanda", "Ganesh"]
       female_first_name: ["Gita", "Sita", "Sarita", "Kalpana", "Neha", "Griahma", "Sujata"]

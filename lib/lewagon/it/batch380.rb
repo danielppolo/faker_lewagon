@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faker
+module LeWagon
   class Batch380 < Base
     class << self
       def massi

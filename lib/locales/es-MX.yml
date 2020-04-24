@@ -1,6 +1,6 @@
 # encoding: utf-8
 es-MX:
-  faker:
+  lewagon:
     address:
       city_prefix: ""
       city_suffix: ""

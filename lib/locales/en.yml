@@ -7,5 +7,5 @@ en:
       short: '%d %b %H:%M'
     am: "AM"
     pm: "PM"
-  faker:
+  lewagon:
     separator: ' & '

@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.push File.expand_path('lib', __dir__)
-require 'faker/version'
+require 'lewagon/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = 'faker'
-  spec.version     = Faker::VERSION
+  spec.name        = 'lewagon'
+  spec.version     = LeWagon::VERSION
   spec.platform    = Gem::Platform::RUBY
-  spec.authors     = ['Benjamin Curtis', 'Vitor Oliveira']
-  spec.email       = ['benjamin.curtis@gmail.com', 'vbrazo@gmail.com']
+  spec.authors     = ['Daniel Polo']
+  spec.email       = ['']
 
   spec.summary     = 'Easily generate fake data'
-  spec.description = 'Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.'
-  spec.homepage    = 'https://github.com/faker-ruby/faker'
+  spec.description = 'LeWagon, a port of Data::LeWagon from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.'
+  spec.homepage    = 'https://github.com/danielppolo/faker_lewagon'
   spec.license     = 'MIT'
 
   spec.files         = Dir['lib/**/*'] + %w[History.md License.txt CHANGELOG.md README.md]
   spec.bindir        = 'bin'
-  spec.executables   = ['faker']
+  spec.executables   = ['lewagon']
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.3'
 
-  spec.metadata['changelog_uri'] = 'https://github.com/faker-ruby/faker/blob/master/CHANGELOG.md'
-  spec.metadata['source_code_uri'] = 'https://github.com/faker-ruby/faker'
-  spec.metadata['bug_tracker_uri'] = 'https://github.com/faker-ruby/faker/issues'
-  spec.metadata['documentation_uri'] = 'https://rubydoc.info/github/faker-ruby/faker/master'
+  spec.metadata['changelog_uri'] = 'https://github.com/lewagon-ruby/lewagon/blob/master/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/lewagon-ruby/lewagon'
+  spec.metadata['bug_tracker_uri'] = 'https://github.com/lewagon-ruby/lewagon/issues'
+  spec.metadata['documentation_uri'] = 'https://rubydoc.info/github/lewagon-ruby/lewagon/master'
   spec.metadata['yard.run'] = 'yri'
 
   spec.add_dependency('i18n', '>= 1.6', '< 2')

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 he:
-  faker:
+  lewagon:
     address:
       city_prefix: [רמת,הר,גבעת,כפר]
       city:

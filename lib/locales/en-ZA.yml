@@ -1,5 +1,5 @@
 en-ZA:
-  faker:
+  lewagon:
     internet:
       domain_suffix: [org.za, co.za, com]
     address:
@@ -143,6 +143,6 @@ en-ZA:
         - "#{first_name} #{last_name} #{last_name}"
     
     # Can produce an invalid South African ID Number
-    # (See Faker::SouthAfrica.valid_id_number for alternative)
+    # (See LeWagon::SouthAfrica.valid_id_number for alternative)
     id_number:
       formats: ["##########08#"]

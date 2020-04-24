@@ -1,5 +1,5 @@
 fr-CA:
-  faker:
+  lewagon:
     address:
       postcode: /[A-CEJ-NPR-TVXY][0-9][A-CEJ-NPR-TV-Z] ?[0-9][A-CEJ-NPR-TV-Z][0-9]/
       state: ["Alberta", "Colombie-Britannique", "Île-du-Prince-Édouard", "Manitoba", "Nouveau-Brunswick", "Nouvelle-Écosse", "Nunavut", "Ontario", "Terre-Neuve-et-Labrador", "Territoires du Nord-Ouest", "Québec", "Saskatchewan", "Yukon"]

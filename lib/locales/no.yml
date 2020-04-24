@@ -1,5 +1,5 @@
 no-NO:
-  faker:
+  lewagon:
     invoice:
       reference:
         # Source: https://www.nordea.com/Images/37-48872/Func_Spec_Credit_Advice.pdf

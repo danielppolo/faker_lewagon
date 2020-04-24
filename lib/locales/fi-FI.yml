@@ -1,5 +1,5 @@
 fi-FI:
-  faker:
+  lewagon:
     invoice:
       reference:
         # Source: https://wiki.xmldation.com/support/fk/finnish_reference_number

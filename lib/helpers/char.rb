@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faker
+module LeWagon
   module Char
     def self.prepare(string)
       result = romanize_cyrillic string
@@ -20,7 +20,7 @@ module Faker
     end
 
     def self.romanize_cyrillic(string)
-      if Faker::Config.locale == 'uk'
+      if LeWagon::Config.locale == 'uk'
         # Based on conventions abopted by BGN/PCGN for Ukrainian
         uk_chars = {
           'а' => 'a',  'б' => 'b',  'в' => 'v',  'г' => 'h',  'ґ' => 'g',  'д' => 'd',
@@ -40,7 +40,7 @@ module Faker
         return string.gsub(/[а-яА-ЯіїєґІЇЄҐ]/, uk_chars)
       end
 
-      if Faker::Config.locale == 'ru'
+      if LeWagon::Config.locale == 'ru'
         # Based on conventions abopted by BGN/PCGN for Russian
         ru_chars = {
           'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'h', 'д' => 'd', 'е' => 'e',

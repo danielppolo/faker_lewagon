@@ -1,5 +1,5 @@
 da-DK:
-  faker:
+  lewagon:
     address:
       city_prefix: [Nord, Birke, Ny, Frederiks, Lille, Vær, Ring, Støv, Sven, Munke, Kerte, Horn, Aa, Bør, Otte, Had, Vi, Rud, Bro, Vide, Jyde, Lange]
       city_suffix: [by, hus, borg, holm, bjerg, lund, bro, bæk, løse, slev, rød, å, sør, skov, slet, værk, strup, købing, sted, sten, kro, toft, ring, vig, bo]

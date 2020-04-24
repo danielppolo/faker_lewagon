@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    faker (2.11.0)
+    lewagon (0.0.1)
       i18n (>= 1.6, < 2)
 
 GEM
@@ -51,7 +51,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  faker!
+  lewagon!
   minitest (= 5.14.0)
   pry (= 0.13.1)
   rake (= 13.0.1)
@@ -62,4 +62,4 @@ DEPENDENCIES
   yard (= 0.9.24)
 
 BUNDLED WITH
-   2.1.0
+   2.1.4

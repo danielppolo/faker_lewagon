@@ -1,5 +1,5 @@
 en-US:
-  faker:
+  lewagon:
     internet:
       domain_suffix: [com, us, biz, info, name, net, org, io, co]
     address:

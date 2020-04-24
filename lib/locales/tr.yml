@@ -1,6 +1,6 @@
 # encoding: utf-8
 tr:
-  faker:
+  lewagon:
     name:
       first_name: [Mehmet, Yiğit, Batuhan, Burak, İrem, Buse, Selim, Caner]
       last_name: [Davut, Sağdıç, Özdemir, Özkanlı, Ekkaldır, Zengel, Eren]

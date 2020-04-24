@@ -51,7 +51,7 @@ Style/Documentation:
 Style/EvalWithLocation:
   Description: This cop checks eval method usage. eval can receive source location metadata, that are filename and line number.
   Exclude:
-    - 'lib/faker/default/json.rb'
+    - 'lib/lewagon/default/json.rb'
 
 Style/FormatStringToken:
   Description: This cop checks for a consistent style for named format string tokens.
@@ -60,8 +60,8 @@ Style/FormatStringToken:
 Style/FrozenStringLiteralComment:
   Description: Add the frozen_string_literal comment to the top of files to help transition from Ruby 2.3.0 to Ruby 3.0.
   Exclude:
-    - 'lib/faker/default/json.rb'
-    - 'test/faker/default/test_faker_json.rb'
+    - 'lib/lewagon/default/json.rb'
+    - 'test/lewagon/default/test_lewagon_json.rb'
 
 Style/For:
   Description: Checks use of for or each in multiline loops.
@@ -89,4 +89,4 @@ Style/RegexpLiteral:
 Security/Eval:
   Description: The use of eval represents a serious security risk.
   Exclude:
-    - 'lib/faker/default/json.rb'
+    - 'lib/lewagon/default/json.rb'

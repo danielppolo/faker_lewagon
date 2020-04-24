@@ -1,5 +1,5 @@
 en-UG:
-  faker:
+  lewagon:
     internet:
       domain_suffix: [ug, com, org, co.ug, org.ug, net]
     address:

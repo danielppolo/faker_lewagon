@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faker
+module LeWagon
   module Base58
     def self.encode(str)
       alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'

@@ -7,11 +7,11 @@ Dir['tasks/**/*.rake'].each { |rake| load rake }
 require 'bundler'
 Bundler::GemHelper.install_tasks
 
-desc 'Start a console session with Faker loaded'
+desc 'Start a console session with LeWagon loaded'
 task :console do
   require 'irb'
   require 'irb/completion'
-  require 'faker' # You know what to do.
+  require 'lewagon' # You know what to do.
 
   ARGV.clear
   IRB.start

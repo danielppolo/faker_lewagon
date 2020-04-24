@@ -3,7 +3,7 @@ Issue#
 
 Example:
 
-https://github.com/faker-ruby/faker/issues/XXX
+https://github.com/lewagon-ruby/lewagon/issues/XXX
 
 OR
 
@@ -11,4 +11,4 @@ OR
 
 Description:
 ------
-*Describe what this PR does in a few lines. If you are adding a new faker generator, please tell us how you're going to use this object. Use cases are important because we need to make sure that our faker generators are useful. After adding the description, please delete this line.*
+*Describe what this PR does in a few lines. If you are adding a new lewagon generator, please tell us how you're going to use this object. Use cases are important because we need to make sure that our lewagon generators are useful. After adding the description, please delete this line.*
