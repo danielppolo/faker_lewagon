@@ -1,67 +1,38 @@
-import arg from 'arg';
-import inquirer from 'inquirer';
+import inquirer from 'inquirer'
+import fs from 'fs'
+import ncp from 'ncp'
+import path from 'path'
+import parseArguments from './parse-arguments'
 
-function parseArgumentsIntoOptions(rawArgs) {
-  const args = arg(
-    {
-      '--git': Boolean,
-      '--yes': Boolean,
-      '--install': Boolean,
-      '-g': '--git',
-      '-y': '--yes',
-      '-i': '--install',
-    },
-    {
-      argv: rawArgs.slice(2),
+async function askBatch(options) {
+  if (!options.batch) {
+    const localePath = (num) => `lib/locales/en/batch${num}.yml`
+    const classPath = (num) => `lib/lewagon/batch${num}.rb`
+    const testPath = (num) => `test/lewagon/batch${num}_test.rb`
+    const docPath = (num) => `docs/Batch${num}.md`
+
+    const { batch } = await inquirer.prompt([{
+      type: 'input',
+      name: 'batch',
+      message: 'Please enter the batch number',
+    }])
+
+    if (batch) {
+      try {
+        if (!fs.existsSync(localePath(batch))) fs.writeFileSync(localePath(batch))
+        if (!fs.existsSync(classPath(batch))) fs.writeFileSync(classPath(batch))
+        if (!fs.existsSync(testPath(batch))) fs.writeFileSync(testPath(batch))
+        if (!fs.existsSync(docPath(batch))) fs.writeFileSync(docPath(batch))
+      } catch (err) {
+        console.error(err)
+      }
     }
-  );
-  return {
-    skipPrompts: args['--yes'] || false,
-    git: args['--git'] || false,
-    template: args._[0],
-    runInstall: args['--install'] || false,
-  };
+  }
 }
 
-async function promptForMissingOptions(options) {
-  const defaultTemplate = 'JavaScript';
-  if (options.skipPrompts) {
-    return {
-      ...options,
-      template: options.template || defaultTemplate,
-    };
-  }
-
-  const questions = [];
-  if (!options.template) {
-    questions.push({
-      type: 'list',
-      name: 'template',
-      message: 'Please choose which project template to use',
-      choices: ['JavaScript', 'TypeScript'],
-      default: defaultTemplate,
-    });
-  }
-
-  if (!options.git) {
-    questions.push({
-      type: 'confirm',
-      name: 'git',
-      message: 'Initialize a git repository?',
-      default: false,
-    });
-  }
-
-  const answers = await inquirer.prompt(questions);
-  return {
-    ...options,
-    template: options.template || answers.template,
-    git: options.git || answers.git,
-  };
+async function cli(args) {
+  let options = parseArguments(args)
+  options = await askBatch(options)
+  console.log(options)
 }
-
-export async function cli(args) {
-  let options = parseArgumentsIntoOptions(args);
-  options = await promptForMissingOptions(options);
-  console.log(options);
-}
+export default cli
