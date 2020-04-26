@@ -27,3 +27,6 @@ coverage/*
 # Ignore YARD metadata and documentation.
 .yardoc/
 yard_docs/
+
+
+node_modules
