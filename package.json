@@ -32,6 +32,7 @@
     "chalk": "^4.0.0",
     "esm": "^3.2.25",
     "inquirer": "^7.1.0",
+    "js-yaml": "^3.13.1",
     "ncp": "^2.0.0"
   },
   "devDependencies": {

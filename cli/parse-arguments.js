@@ -10,7 +10,7 @@ function parseArgumentsIntoOptions(rawArgs) {
   )
   return {
     skipPrompts: args['--yes'] || false,
-    git: args['--git'] || false,
+    new: args['--new'] || false,
     batch: args._[0],
     runInstall: args['--install'] || false,
   }
