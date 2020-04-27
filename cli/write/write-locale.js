@@ -9,7 +9,8 @@ const localeDeclaration = (batch, content) => `en:
 ${content}
 `
 
-const defineLocale = (batch, student, phrases) => `      ${student}: ${phrases}
+const defineLocale = (batch, student, phrases) => `      ${student}:
+        ${phrases}
 `
 const writeLocale = (batch, students = [], state = {}) => {
   fs.writeFileSync(
@@ -17,7 +18,7 @@ const writeLocale = (batch, students = [], state = {}) => {
     localeDeclaration(
       batch,
       students.sort().map((student) => {
-        const phrases = `[${state[student].map((phrase) => `"${phrase}"`).join(', ')}]`
+        const phrases = `${state[student].map((phrase) => `- ${phrase}`).join('\n        ')}`
         return defineLocale(batch, student, phrases)
       }).join(''),
     ),
